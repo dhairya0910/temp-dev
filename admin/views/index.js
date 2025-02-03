@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const userModel= require('./models/user');
+const userModel= require('../models/user');
 const { log } = require('console');
 
 const cookieParser = require('cookie-parser');
