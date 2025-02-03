@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function toggleLogin() {
+            const role = document.getElementById("role").value;
+            document.getElementById("role").value = role === "Admin" ? "Doctor" : "Admin";
+            document.getElementById("loginTitle").innerText = role === "Admin" ? "Doctor Login" : "Admin Login";
+            document.getElementById("toggleLink").innerText = role === "Admin" ? "Click here for Admin Login" : "Click here for Doctor Login";
+        }
+    </script>
+</head>
+<body class="flex min-h-screen items-center justify-center bg-gray-100 dark:bg-gray-900">
+    <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl w-[350px] sm:w-[400px] flex flex-col gap-5">
+        <h2 id="loginTitle" class="text-center text-3xl font-semibold text-gray-800 dark:text-white">Admin Login</h2>
+        
+        <form action="/login" method="post" class="flex flex-col gap-5">
+            <input type="hidden" id="role" name="role" value="Admin">
+
+            <div class="flex flex-col gap-2">
+                <label class="text-gray-600 dark:text-gray-300">Email</label>
+                <input 
+                    type="email" 
+                    name="email" 
+                    required 
+                    class="p-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none"
+                />
+            </div>
+
+            <div class="flex flex-col gap-2">
+                <label class="text-gray-600 dark:text-gray-300">Password</label>
+                <input 
+                    type="password" 
+                    name="password" 
+                    required 
+                    class="p-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none"
+                />
+            </div>
+
+            <button  type="submit" class="bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg transition-all">
+                Login
+            </button>
+        </form>
+
+        
+    </div>
+</body>
+</html>
